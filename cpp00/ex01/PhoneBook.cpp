@@ -1,6 +1,7 @@
 #include "PhoneBook.hpp"
 #include <iostream>
 #include <iomanip>
+#include <limits>
 
 PhoneBook::PhoneBook() : currentIndex(0), contactCount(0) {}
 
@@ -51,9 +52,7 @@ void PhoneBook::searchContact() const
     std::cout << std::setw(10) << "Index" << '|';
     std::cout << std::setw(10) << "First Name" << '|';
     std::cout << std::setw(10) << "Last Name" << '|';
-    std::cout << std::setw(10) << "Nickname" << '|';
-    std::cout << std::setw(10) << "Phone Num" << '|';
-    std::cout << std::setw(10) << "D. Secret" << '|' << std::endl;
+    std::cout << std::setw(10) << "Nickname" << '|' << std::endl;
 
     for (int i = 0; i < contactCount; i++)
         contacts[i].displayShortInfo(i);

@@ -29,8 +29,6 @@ void Contact::displayShortInfo(int index) const
     displayInfo(firstName);
     displayInfo(lastName);
     displayInfo(nickname);
-    displayInfo(phoneNumber);
-    displayInfo(darkestSecret);
     std::cout << std::endl;
 }
 

@@ -66,6 +66,8 @@ Account::~Account(void)
 
 void	Account::makeDeposit(int deposit)
 {
+    if (deposit <= 0)
+        return ;
     _nbDeposits++;
     _totalNbDeposits++;
     _totalAmount += deposit;
