@@ -2,7 +2,7 @@ SRCS		=	main.cpp Zombie.cpp zombieHorde.cpp
 
 OBJS		=	${SRCS:.cpp=.o}
 
-NAME		=	ex01
+NAME		=	zombieHorde
 
 RM		=	rm -f
 

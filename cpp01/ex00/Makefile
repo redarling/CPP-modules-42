@@ -2,7 +2,7 @@ SRCS		=	main.cpp Zombie.cpp randomChump.cpp newZombie.cpp
 
 OBJS		=	${SRCS:.cpp=.o}
 
-NAME		=	ex00
+NAME		=	zombie
 
 RM		=	rm -f
 

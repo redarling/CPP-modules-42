@@ -2,7 +2,7 @@ SRCS		=	main.cpp
 
 OBJS		=	${SRCS:.cpp=.o}
 
-NAME		=	ex04
+NAME		=	sedLosers
 
 RM		=	rm -f
 

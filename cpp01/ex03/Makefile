@@ -2,7 +2,7 @@ SRCS		=	main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
 
 OBJS		=	${SRCS:.cpp=.o}
 
-NAME		=	ex03
+NAME		=	unnecessaryViolence
 
 RM		=	rm -f
 

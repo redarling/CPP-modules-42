@@ -2,7 +2,7 @@ SRCS		=	main.cpp Harl.cpp
 
 OBJS		=	${SRCS:.cpp=.o}
 
-NAME		=	ex05
+NAME		=	harl
 
 RM		=	rm -f
 

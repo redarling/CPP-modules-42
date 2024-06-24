@@ -2,11 +2,11 @@ SRCS		=	main.cpp Harl.cpp
 
 OBJS		=	${SRCS:.cpp=.o}
 
-NAME		=	ex06
+NAME		=	harlFilter
 
-RM		=	rm -f
+RM			=	rm -f
 
-CPP		=	c++
+CPP			=	c++
 
 CFLAGS		=  -Wall -Wextra -Werror -std=c++98
 
