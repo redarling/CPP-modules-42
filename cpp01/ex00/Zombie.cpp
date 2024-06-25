@@ -7,8 +7,12 @@ Zombie::Zombie(const std::string& name)  : _name(name)
 
 Zombie::~Zombie()
 {
-    std::cout << this->_name << ": destroyed" << std::endl;
+    if (! _name.empty())
+    {
+        std::cout << this->_name << ": destroyed" << std::endl;
+    }
 }
+
 
 void Zombie::announce(void) const
 {
