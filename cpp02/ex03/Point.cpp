@@ -1,46 +1,30 @@
 #include "Point.hpp"
 
-Point::Point()
-{
-    std::cout << x << std::endl;
-    std::cout << y << std::endl;
-}
+Point::Point() {}
 
-Point::Point(float x, float y)
-{
-    Fixed   x_point(x);
-    Fixed   y_point(y);
+Point::Point(float x_point, float y_point) 
+        : x(x_point), y(y_point) {}
 
-    static_cast<Fixed>(this->x) = x_point;
-    static_cast<Fixed>(this->x) = y_point;
-}
+Point::Point(const Point &point) : x(point.x), y(point.y) {}
 
-Point::Point(const Point &point) { *this = point; }
-
-Point& Point::operator=(const Point &point)
+Point& Point::operator=(const Point &point) // wrong
 {
     if (this != &point)
     {
-        static_cast<Fixed>(this->x) = point.x;
-        static_cast<Fixed>(this->y) = point.y;
+        std::cout << "Doesn't work" << std::endl;
     }
     
     return (*this);
 }
         
-Point::~Point()
-{
-    std::cout << "Destructor called" << std::endl;
-}
+Point::~Point() {}
 
 float   Point::getX()
 {
-    std::cout << static_cast<Fixed>(x) << std::endl;
     return (static_cast<Fixed>(x).toFloat());
 }
 
 float   Point::getY()
 {
-    std::cout << static_cast<Fixed>(y) << std::endl;
     return (static_cast<Fixed>(y).toFloat());
 }
