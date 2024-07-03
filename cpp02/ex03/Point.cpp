@@ -2,18 +2,12 @@
 
 Point::Point() {}
 
-Point::Point(float x_point, float y_point) 
-        : x(x_point), y(y_point) {}
+Point::Point(float x_point, float y_point) : x(x_point), y(y_point) {}
 
 Point::Point(const Point &point) : x(point.x), y(point.y) {}
 
-Point& Point::operator=(const Point &point) // wrong
-{
-    if (this != &point)
-    {
-        std::cout << "Doesn't work" << std::endl;
-    }
-    
+Point& Point::operator=(const Point &point)
+{   
     return (*this);
 }
         
