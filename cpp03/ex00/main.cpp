@@ -4,9 +4,9 @@ int main(void)
 {
     ClapTrap Sauron("Sauron");
 
-    Sauron.takeDamage(10);
+    Sauron.takeDamage(9);
     Sauron.attack("Bilbo");
-    Sauron.beRepaired(15);
+    Sauron.beRepaired(150);
     Sauron.attack("Bilbo");
     Sauron.attack("Bilbo");
     Sauron.attack("Bilbo");
