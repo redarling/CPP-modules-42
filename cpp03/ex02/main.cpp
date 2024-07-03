@@ -9,9 +9,11 @@ int main(void)
     Monster.highFivesGuys();
     Monster.attack("Good guy");
     Monster.takeDamage(50);
+    Monster.beRepaired(0);
+    Monster.takeDamage(49);
 
     FragTrap Monster2 = Monster;
-    Monster2.takeDamage(50);
+    Monster2.takeDamage(1);
 
     return (0);
 }

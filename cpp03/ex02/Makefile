@@ -2,7 +2,7 @@ SRCS		=	ClapTrap.cpp ScavTrap.cpp FragTrap.cpp main.cpp
 
 OBJS		=	${SRCS:.cpp=.o}
 
-NAME		=	ScavTrap
+NAME		=	FragTrap
 
 RM		=	rm -f
 
