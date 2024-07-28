@@ -51,70 +51,31 @@ std::ostream& operator<<(std::ostream &out, const Fixed &fixed)
     return (out);
 }
 
-bool operator>(const Fixed &fixed1, const Fixed &fixed2)
+bool Fixed::operator>(const Fixed &other) const { return value > other.value; }
+bool Fixed::operator<(const Fixed &other) const { return value < other.value; }
+bool Fixed::operator>=(const Fixed &other) const { return value >= other.value; }
+bool Fixed::operator<=(const Fixed &other) const { return value <= other.value; }
+bool Fixed::operator==(const Fixed &other) const { return value == other.value; }
+bool Fixed::operator!=(const Fixed &other) const { return value != other.value; }
+
+Fixed Fixed::operator+(const Fixed &other) const
 {
-    return (fixed1.getRawBits() > fixed2.getRawBits());
+    return (Fixed(this->toFloat() + other.toFloat()));
 }
 
-bool operator<(const Fixed &fixed1, const Fixed &fixed2)
+Fixed Fixed::operator-(const Fixed &other) const
 {
-    return (fixed1.getRawBits() < fixed2.getRawBits());
+    return (Fixed(this->toFloat() - other.toFloat()));
 }
 
-bool operator>=(const Fixed &fixed1, const Fixed &fixed2)
+Fixed Fixed::operator*(const Fixed &other) const
 {
-    return (fixed1.getRawBits() >= fixed2.getRawBits());
+    return (Fixed(this->toFloat() * other.toFloat()));
 }
 
-bool operator<=(const Fixed &fixed1, const Fixed &fixed2)
+Fixed Fixed::operator/(const Fixed &other) const
 {
-    return (fixed1.getRawBits() <= fixed2.getRawBits());
-}
-
-bool operator==(const Fixed &fixed1, const Fixed &fixed2)
-{
-    return (fixed1.getRawBits() == fixed2.getRawBits());
-}
-
-bool operator!=(const Fixed &fixed1, const Fixed &fixed2)
-{
-    return (fixed1.getRawBits() != fixed2.getRawBits());
-}
-
-Fixed operator+(const Fixed &fixed1, const Fixed &fixed2)
-{
-    Fixed   Sum;
-
-    Sum.setRawBits(fixed1.getRawBits() + fixed2.getRawBits());
-
-    return (Sum);
-}
-
-Fixed operator-(const Fixed &fixed1, const Fixed &fixed2)
-{
-    Fixed   Difference;
-
-    Difference.setRawBits(fixed1.getRawBits() - fixed2.getRawBits());
-
-    return (Difference);
-}
-
-Fixed operator*(const Fixed &fixed1, const Fixed &fixed2)
-{
-    Fixed   Product;
-
-    Product.setRawBits((fixed1.getRawBits() * fixed2.getRawBits()) >> Fixed::getFractionalBits());
-
-    return (Product);
-}
-
-Fixed operator/(const Fixed &fixed1, const Fixed &fixed2)
-{
-    Fixed   Quotient;
-
-    Quotient.setRawBits((fixed1.getRawBits() << Fixed::getFractionalBits()) / fixed2.getRawBits());
-
-    return (Quotient);
+    return (Fixed(this->toFloat() / other.toFloat()));
 }
 
 Fixed& Fixed::operator++()

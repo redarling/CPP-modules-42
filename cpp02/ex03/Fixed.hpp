@@ -26,7 +26,21 @@ class Fixed
         // decrement
         Fixed&                  operator--(); // pre
         Fixed                  operator--(int); // post
-        
+
+        // Comparison operators
+        bool                operator>(const Fixed &other) const;
+        bool                operator<(const Fixed &other) const;
+        bool                operator>=(const Fixed &other) const;
+        bool                operator<=(const Fixed &other) const;
+        bool                operator==(const Fixed &other) const;
+        bool                operator!=(const Fixed &other) const;
+    
+        // Arithmetic operators
+        Fixed               operator+(const Fixed &other) const;
+        Fixed               operator-(const Fixed &other) const;
+        Fixed               operator*(const Fixed &other) const;
+        Fixed               operator/(const Fixed &other) const;
+
         static Fixed&           min(Fixed &fixed1, Fixed &fixed2);
         static const Fixed&     min(Fixed const &fixed1, Fixed const &fixed2);
         static Fixed&           max(Fixed &fixed1, Fixed &fixed2);
@@ -39,19 +53,5 @@ class Fixed
 };
 
 std::ostream& operator<<(std::ostream &out, const Fixed &fixed);
-
-// comparison operators
-bool operator>(const Fixed &fixed1, const Fixed &fixed2);
-bool operator<(const Fixed &fixed1, const Fixed &fixed2);
-bool operator>=(const Fixed &fixed1, const Fixed &fixed2);
-bool operator<=(const Fixed &fixed1, const Fixed &fixed2);
-bool operator==(const Fixed &fixed1, const Fixed &fixed2);
-bool operator!=(const Fixed &fixed1, const Fixed &fixed2);
-
-// arithmetic operators
-Fixed operator+(const Fixed &fixed1, const Fixed &fixed2);
-Fixed operator-(const Fixed &fixed1, const Fixed &fixed2);
-Fixed operator*(const Fixed &fixed1, const Fixed &fixed2);
-Fixed operator/(const Fixed &fixed1, const Fixed &fixed2);
 
 #endif
