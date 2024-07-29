@@ -1,5 +1,4 @@
 #include "ClapTrap.hpp"
-#include <climits>
 
 ClapTrap::ClapTrap(std::string name) 
             : name(name), hitPoints(10), energyPoints(10), attackDamage(0)

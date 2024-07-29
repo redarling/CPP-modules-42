@@ -2,7 +2,6 @@
 
 int	main(void)
 {
-
 	DiamondTrap	Jack("Jack Sparrow");
     std::cout << std::endl;
 	Jack.whoAmI();
