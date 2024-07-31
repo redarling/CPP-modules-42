@@ -1,4 +1,4 @@
-#include "AAnimal.hpp"
+#include "Animal.hpp"
 
 Animal::Animal() : type("unknown")
 {

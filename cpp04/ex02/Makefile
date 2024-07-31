@@ -1,4 +1,4 @@
-SRCS		=	main.cpp Cat.cpp Dog.cpp AAnimal.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
+SRCS		=	main.cpp Cat.cpp Dog.cpp Animal.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 
 OBJS		=	${SRCS:.cpp=.o}
 
@@ -6,14 +6,14 @@ NAME		=	Polymorphism_v3.0
 
 RM			=	rm -f
 
-CPP			=	c++
+CXX			=	c++
 
 CFLAGS		=  -Wall -Wextra -Werror -std=c++98
 
 all:		${NAME}
 
 ${NAME}:	${OBJS}
-		${CPP} ${CFLAGS} ${OBJS} -o ${NAME}
+		${CXX} ${CFLAGS} ${OBJS} -o ${NAME}
 
 clean:
 		${RM} ${OBJS}
