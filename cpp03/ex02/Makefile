@@ -6,14 +6,14 @@ NAME		=	FragTrap
 
 RM		=	rm -f
 
-CPP		=	c++
+CXX		=	c++
 
 CFLAGS		=  -Wall -Wextra -Werror -std=c++98
 
 all:		${NAME}
 
 ${NAME}:	${OBJS}
-		${CPP} ${CFLAGS} ${OBJS} -o ${NAME}
+		${CXX} ${CFLAGS} ${OBJS} -o ${NAME}
 
 clean:
 		${RM} ${OBJS}
