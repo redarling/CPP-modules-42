@@ -1,4 +1,7 @@
-# include "Character.cpp"
+#include "Character.cpp"
+#include "MateriaSource.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
 
 int main(void)
 {

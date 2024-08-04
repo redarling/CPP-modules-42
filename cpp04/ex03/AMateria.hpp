@@ -2,8 +2,14 @@
 # define AMATERIA_HPP
 
 # include <string>
-# include "ICharacter.hpp"
+# include "Character.hpp"
+# include "MateriaSource.hpp"
 # include <iostream>
+
+class Character;
+class ICharacter;
+class MateriaSource;
+class IMateriaSource;
 
 class AMateria
 {
@@ -19,7 +25,7 @@ class AMateria
         virtual void        use(ICharacter& target);
 
     protected:
-        std::string         _type;
+        std::string const   _type;
 };
 
 #endif

@@ -1,6 +1,6 @@
-SRCS		=	main.cpp AMateria.cpp \
-				ICharacter.cpp IMateriaSource.cpp \
-				Character.cpp Ice.cpp Cure.cpp
+SRCS		=	main.cpp AMateria.cpp Cure.cpp \
+				Ice.cpp Character.cpp MateriaSource.cpp
+
 
 OBJS		=	${SRCS:.cpp=.o}
 
