@@ -8,8 +8,8 @@ class Character : public ICharacter
     public:
         Character();
         Character(std::string name);
-        virtual ~Character();
         Character(const Character& other);
+        virtual ~Character();
         Character& operator=(const Character& other);
         
         virtual std::string const&  getName() const;
@@ -25,6 +25,7 @@ class Character : public ICharacter
         void                        clearUnequippedMaterias();
         void                        dropMateria(int idx);
         void                        copyInventory(const Character& other);
+
 };
 
 #endif

@@ -48,12 +48,13 @@ Character& Character::operator=(const Character& other)
     return (*this);
 }
 
+
 std::string const & Character::getName() const
 {
     return (this->_name);
 }
 
-void    Character::clearInventory()
+void Character::clearInventory()
 {
     for (int i = 0; i < 4; ++i)
     {
@@ -65,7 +66,7 @@ void    Character::clearInventory()
     }
 }
 
-void    Character::clearUnequippedMaterias()
+void Character::clearUnequippedMaterias()
 {
     for (int i = 0; i < 100; ++i)
     {
@@ -74,6 +75,17 @@ void    Character::clearUnequippedMaterias()
             delete (this->_unequippedMaterias[i]);
             this->_unequippedMaterias[i] = nullptr;
         }
+    }
+}
+
+void Character::copyInventory(const Character& other)
+{
+    for (int i = 0; i < 4; ++i)
+    {
+        if (other._inventory[i] != nullptr)
+            this->_inventory[i] = other._inventory[i]->clone();
+        else
+            this->_inventory[i] = nullptr;
     }
 }
 
@@ -90,17 +102,6 @@ void    Character::dropMateria(int idx)
         }
     }
     std::cout << "Too many dropped materias, it's not possible to drop more!" << std::endl;
-}
-
-void Character::copyInventory(const Character& other)
-{
-    for (int i = 0; i < 4; ++i)
-    {
-        if (other._inventory[i] != nullptr)
-            this->_inventory[i] = other._inventory[i]->clone();
-        else
-            this->_inventory[i] = nullptr;
-    }
 }
 
 void    Character::equip(AMateria* m)
