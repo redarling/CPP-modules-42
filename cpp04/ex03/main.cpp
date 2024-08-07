@@ -4,7 +4,9 @@
 
 int main(void)
 {
-    std::cout << "------Subject test-------" << std::endl << std::endl;
+    std::cout << "------Subject test-------" << std::endl
+              << std::endl;
+    
     IMateriaSource* src = new MateriaSource();
     src->learnMateria(new Ice());
     src->learnMateria(new Cure());
@@ -12,10 +14,15 @@ int main(void)
     ICharacter*     me = new Character("me");
     
     AMateria*       tmp;
+
+    tmp = src->createMateria("invalid");
     tmp = src->createMateria("ice");
     me->equip(tmp);
+    delete (tmp);
+
     tmp = src->createMateria("cure");
     me->equip(tmp);
+    delete (tmp);
     
     ICharacter*     bob = new Character("bob");
     
@@ -25,9 +32,9 @@ int main(void)
     delete (bob);
     delete (me);
     delete (src);
-    delete (tmp);
 
-    std::cout << std::endl << "------Additional test------" << std::endl << std::endl;
+    std::cout << std::endl << "------Additional test------" 
+              << std::endl << std::endl;
 
     ICharacter* Andrii = new Character("Andrii");
     ICharacter* CopyAndrii = new Character("CopyAndrii");
@@ -65,15 +72,10 @@ int main(void)
     
     std::cout << std::endl;
 
-    Character* thirdCharacter = new Character(*static_cast<Character*>(Andrii));
-
-    thirdCharacter->use(1, *CopyAndrii);
-
     delete (cure);
     delete (ice);
     delete (Andrii);
     delete (CopyAndrii);
-    delete (thirdCharacter);
     
     return (0);
 }
