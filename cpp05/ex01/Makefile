@@ -1,12 +1,9 @@
-SRCS		=	main.cpp Bureaucrat.cpp AForm.cpp\
-				GradeTooLowException.cpp GradeTooHighException.cpp \
-				ShrubberyCreationForm.cpp \
-				PresidentialPardonForm.cpp RobotomyRequestForm.cpp \
-				NotSignedException.cpp 
+SRCS		=	main.cpp Bureaucrat.cpp Form.cpp\
+				GradeTooLowException.cpp GradeTooHighException.cpp
 
 OBJS		=	${SRCS:.cpp=.o}
 
-NAME		=	ex02
+NAME		=	ex01
 
 RM			=	rm -f
 
