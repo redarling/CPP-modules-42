@@ -48,7 +48,7 @@ void    identify(Base& p)
         (void)a;
         return ;
     }
-    catch (const std::bad_cast& e)
+    catch (const std::exception& e)
     {
         std::cout << "Not A: " << e.what() << std::endl;
     }
@@ -60,7 +60,7 @@ void    identify(Base& p)
         (void)b;
         return ;
     }
-    catch (const std::bad_cast& e)
+    catch (const std::exception& e)
     {
         std::cout << "Not B: " << e.what() << std::endl;
     }
@@ -72,7 +72,7 @@ void    identify(Base& p)
         (void)c;
         return ;
     }
-    catch (const std::bad_cast& e)
+    catch (const std::exception& e)
     {
         std::cout << "Not C: " << e.what() << std::endl;
     }

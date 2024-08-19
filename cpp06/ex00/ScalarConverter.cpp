@@ -87,9 +87,9 @@ void    ScalarConverter::fromChar(const std::string& input)
 
 void    ScalarConverter::fromInt(const std::string& input)
 {
-    long    longValue = std::strtol(input.c_str(), nullptr, 10);
+    long    longValue = std::strtol(input.c_str(), NULL, 10);
     char    charValue = static_cast<char>(longValue);
-    double  doubleValue = std::strtod(input.c_str(), nullptr);
+    double  doubleValue = std::strtod(input.c_str(), NULL);
 
     if (longValue < 0 || longValue > 255)
         std::cout << "char: impossible" << std::endl;
@@ -107,7 +107,7 @@ void    ScalarConverter::fromInt(const std::string& input)
 
 void    ScalarConverter::fromFloatOrDouble(const std::string& input)
 {
-    double  doubleValue = std::strtod(input.c_str(), nullptr);
+    double  doubleValue = std::strtod(input.c_str(), NULL);
     char    charValue = static_cast<char>(doubleValue);
 
     if ((doubleValue < 0.0 || doubleValue > 255.0))
