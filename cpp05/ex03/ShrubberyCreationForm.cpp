@@ -24,7 +24,8 @@ ShrubberyCreationForm&  ShrubberyCreationForm::operator=(const ShrubberyCreation
 
 void ShrubberyCreationForm::performAction() const
 {
-    std::ofstream   outputFile(this->_target + "_shrubbery");
+    std::string     fileName = this->_target + "_shrubbery";
+    std::ofstream   outputFile(fileName.c_str());
     
     if (!outputFile)
     {

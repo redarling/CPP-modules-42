@@ -44,7 +44,7 @@ AForm* Intern::makeForm(const std::string& formName, const std::string& target)
     }
 
     std::cout << "Intern can't create this form: " << formName << std::endl;
-    return (nullptr);
+    return (NULL);
 }
 
 const Intern::FormMap*   Intern::getFormMap(void)
