@@ -12,66 +12,13 @@ class Array
         unsigned int    _arraySize;
 
     public:
-        Array() : _arr(NULL), _arraySize(0) {}
-
-        Array(unsigned int s) : _arraySize(s)
-        {
-            if (this->_arraySize != 0)
-                this->_arr = new T[this->_arraySize]();
-            else
-                this->_arr = NULL;
-        }
-
-        Array(const Array& other) : _arraySize(other.size())
-        {
-            if (this->_arraySize != 0)
-            {
-                this->_arr = new T[this->_arraySize];
-                for (unsigned int i = 0; i < this->_arraySize; ++i)
-                    this->_arr[i] = other._arr[i];
-            }
-            else
-                this->_arr = NULL;
-        }
-
-        ~Array()
-        {
-            if (this->_arraySize != 0)
-                delete[] (this->_arr);
-        }
-
-        Array& operator=(const Array& other)
-        {
-            if (this != &other)
-            {
-                if (this->_arraySize != 0)
-                    delete[] (this->_arr);
-                this->_arraySize = other.size();
-                if (this->_arraySize != 0)
-                {
-                    this->_arr = new T[this->_arraySize];
-                    for (unsigned int i = 0; i < this->_arraySize; ++i)
-                    {
-                        this->_arr[i] = other._arr[i];
-                    }
-                }
-                else
-                    this->_arr = NULL;
-            }
-            return (*this);
-        }
-
-        T& operator[](unsigned int index)
-        {
-            if (index >= this->_arraySize)
-                throw (OutOfBoundsException());
-            return (this->_arr[index]);
-        }
-
-        unsigned int size() const
-        {
-            return (this->_arraySize);
-        }
+        Array();
+        Array(unsigned int s);
+        Array(const Array& other);
+        ~Array();
+        Array& operator=(const Array& other);
+        T& operator[](unsigned int index);
+        unsigned int size() const;
 
         class OutOfBoundsException : public std::exception
         {
@@ -82,5 +29,73 @@ class Array
                 }
         };
 };
+
+template <class T>
+Array<T>::Array() : _arr(NULL), _arraySize(0) {}
+
+template <class T>
+Array<T>::Array(unsigned int s) : _arraySize(s)
+{
+    if (this->_arraySize != 0)
+        this->_arr = new T[this->_arraySize]();
+    else
+        this->_arr = NULL;
+}
+
+template <class T>
+Array<T>::Array(const Array& other) : _arraySize(other.size())
+{
+    if (this->_arraySize != 0)
+    {
+        this->_arr = new T[this->_arraySize];
+        for (unsigned int i = 0; i < this->_arraySize; ++i)
+            this->_arr[i] = other._arr[i];
+        }
+    else
+        this->_arr = NULL;
+}
+
+template <class T>
+Array<T>::~Array()
+{
+    if (this->_arraySize != 0)
+        delete[] (this->_arr);
+}
+
+template <class T>
+Array<T>& Array<T>::operator=(const Array& other)
+{
+    if (this != &other)
+    {
+        if (this->_arraySize != 0)
+            delete[] (this->_arr);
+        this->_arraySize = other.size();
+    if (this->_arraySize != 0)
+    {
+        this->_arr = new T[this->_arraySize];
+        for (unsigned int i = 0; i < this->_arraySize; ++i)
+        {
+            this->_arr[i] = other._arr[i];
+        }
+    }
+    else
+        this->_arr = NULL;
+    }
+    return (*this);
+}
+
+template <class T>
+T& Array<T>::operator[](unsigned int index)
+{
+    if (index >= this->_arraySize)
+        throw (OutOfBoundsException());
+    return (this->_arr[index]);
+}
+
+template <class T>
+unsigned int Array<T>::size() const
+{
+    return (this->_arraySize);
+}
 
 #endif
