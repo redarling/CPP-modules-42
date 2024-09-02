@@ -1,4 +1,4 @@
-SRCS		=	main.cpp Span.cpp
+SRCS		=	main.cpp Span.cpp SpanIsFull.cpp SpanNotPossible.cpp
 
 OBJS		=	${SRCS:.cpp=.o}
 
