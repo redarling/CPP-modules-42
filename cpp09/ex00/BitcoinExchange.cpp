@@ -2,7 +2,7 @@
 
 BitcoinExchange::BitcoinExchange() : _dataBase(), _data_csv("data.csv")
 {
-    std::ifstream    dataFile(this->_data_csv);
+    std::ifstream    dataFile(this->_data_csv.c_str());
 
     if (!dataFile)
     {
@@ -254,7 +254,7 @@ void    BitcoinExchange::getExchange(const std::string& fileName)
         return ;
     }
 
-    std::ifstream    inputFile(fileName);
+    std::ifstream    inputFile(fileName.c_str());
 
     if (!inputFile)
     {

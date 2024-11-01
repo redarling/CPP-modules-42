@@ -1,7 +1,8 @@
 #include "PmergeMe.hpp"
-#include <chrono>
+#include <ctime>
 #include <vector>
 #include <deque>
+#include <climits>
 
 static bool parseInput(int argc, char **argv)
 {
@@ -49,13 +50,13 @@ int main(int argc, char **argv)
 
     pmergeVector.printContainer(BEFORE);
 //--------------------------------------------------------------
-    std::clock_t    vectorTimeStart = std::clock();
+    clock_t    vectorTimeStart = clock();
     pmergeVector.fordJohnsonAlgorithm();
-    double          vectorTimeDuration = (std::clock() - vectorTimeStart) / (double)CLOCKS_PER_SEC * 1000;
+    double          vectorTimeDuration = (clock() - vectorTimeStart) / (double)CLOCKS_PER_SEC * 1000;
 //--------------------------------------------------------------
-    std::clock_t    dequeTimeStart = std::clock();
+    clock_t    dequeTimeStart = clock();
     pmergeDeque.fordJohnsonAlgorithm();
-    double          dequeTimeDuration = (std::clock() - dequeTimeStart) / (double)CLOCKS_PER_SEC * 1000;
+    double          dequeTimeDuration = (clock() - dequeTimeStart) / (double)CLOCKS_PER_SEC * 1000;
 //--------------------------------------------------------------
     pmergeVector.printContainer(AFTER);
     

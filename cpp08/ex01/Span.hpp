@@ -3,8 +3,8 @@
 
 # include "SpanIsFull.hpp"
 # include "SpanNotPossible.hpp"
+# include <climits>
 # include <iostream>
-# include <algorithm>
 # include <set>
 
 class Span
