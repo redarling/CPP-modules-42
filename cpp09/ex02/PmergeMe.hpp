@@ -15,8 +15,8 @@ class PmergeMe
     private:
         T  _container;
 
-        void        mergeInsertionSort(typename T::iterator first, typename T::iterator last, T& sorted);
-        void        mergeSorted(T& left, T& right, T& sorted);
+        void        insertWithBinarySearch(T& sorted, const T& elementsToInsert);
+        void        recursiveMergeSort(const T& input, T& output);
 
     public:
         PmergeMe();
@@ -26,7 +26,7 @@ class PmergeMe
 
         void        fillContainer(int argc, char **argv);
         void        printContainer(printMsg msg);
-        void        fordJohnsonAlgorithm();
+        void        mergeInsertionSort();
 };
 
 template <typename T>
@@ -43,6 +43,7 @@ PmergeMe<T>&    PmergeMe<T>::operator=(const PmergeMe& other)
 {
     if (this != &other)
     {
+        this->_container.clear();
         this->_container = other._container;
     }
 
@@ -79,50 +80,34 @@ void    PmergeMe<T>::fillContainer(int argc, char **argv)
 }
 
 template <typename T>
-void    PmergeMe<T>::mergeSorted(T& left, T& right, T& sorted)
+void PmergeMe<T>::insertWithBinarySearch(T& sorted, const T& elementsToInsert)
 {
-    typename T::iterator    itLeft = left.begin();
-    typename T::iterator    itRight = right.begin();
-
-    while (itLeft != left.end() && itRight != right.end())
+    for (typename T::const_iterator it = elementsToInsert.begin(); it != elementsToInsert.end(); ++it)
     {
-        if (*itLeft < *itRight)
-            sorted.push_back(*itLeft++);
-        else
-            sorted.push_back(*itRight++);
+        typename T::iterator pos = std::lower_bound(sorted.begin(), sorted.end(), *it);
+        sorted.insert(pos, *it);
     }
-    
-    while (itLeft != left.end())
-        sorted.push_back(*itLeft++);
-    
-    while (itRight != right.end())
-        sorted.push_back(*itRight++);
 }
 
 template <typename T>
-void    PmergeMe<T>::mergeInsertionSort(typename T::iterator first, typename T::iterator last, T& sorted)
+void PmergeMe<T>::recursiveMergeSort(const T& input, T& output)
 {
-    if (std::distance(first, last) <= 1)
+    if (input.size() <= 1)
     {
-        if (first != last)
-            sorted.push_back(*first);
-        return ;
+        output = input;
+        return;
     }
 
-    T                       pairsLeft, pairsRight;
-    typename T::iterator    it = first;
-
-    while (it != last)
+    T pairsLeft, pairsRight;
+    typename T::const_iterator it = input.begin();
+    while (it != input.end())
     {
         int left = *it;
-
-        if (++it != last)
+        if (++it != input.end())
         {
             int right = *it;
-
             if (left > right)
                 std::swap(left, right);
-
             pairsLeft.push_back(left);
             pairsRight.push_back(right);
             ++it;
@@ -133,23 +118,20 @@ void    PmergeMe<T>::mergeInsertionSort(typename T::iterator first, typename T::
         }
     }
 
-    T   sortedLeft, sortedRight;
+    T sortedRight;
 
-    mergeInsertionSort(pairsLeft.begin(), pairsLeft.end(), sortedLeft);
-    mergeInsertionSort(pairsRight.begin(), pairsRight.end(), sortedRight);
-
-    mergeSorted(sortedLeft, sortedRight, sorted);
+    recursiveMergeSort(pairsRight, sortedRight);
+    insertWithBinarySearch(sortedRight, pairsLeft);
+    output = sortedRight;
 }
 
 template <typename T>
-void    PmergeMe<T>::fordJohnsonAlgorithm()
+void PmergeMe<T>::mergeInsertionSort()
 {
     if (this->_container.empty()) return;
     if (_container.size() <= 1) return;
 
-    T sorted;
-    
-    mergeInsertionSort(_container.begin(), _container.end(), sorted);
-    
-    this->_container = sorted;
+    T sortedContainer;
+    recursiveMergeSort(this->_container, sortedContainer);
+    this->_container = sortedContainer;
 }

@@ -69,7 +69,7 @@ void    RPN::calculate(const std::string& str)
 
         num = this->_stack.top();
         
-        if (this->_stack.size() == 1)
+        if (this->_stack.size() < 2)
         {
             std::cerr << "Error: Your string doesn't respect the rules" << std::endl;
             return ;
@@ -82,12 +82,25 @@ void    RPN::calculate(const std::string& str)
         else if (str[i] == '-')
             num = this->_stack.top() - num;
         else if (str[i] == '/')
+        {
+            if (num == 0)
+            {
+                std::cerr << "Error: Division by 0" << std::endl;
+                return ;
+            }
             num = this->_stack.top() / num;
+        }
         else if (str[i] == '*')
             num = this->_stack.top() * num;
         
         this->_stack.pop();
         this->_stack.push(num);
+    }
+
+    if (this->_stack.empty())
+    {
+        std::cerr << "Error: Stack is empty, no result available" << std::endl;
+        return ;
     }
 
     std::cout << this->_stack.top() << std::endl;

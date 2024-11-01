@@ -51,11 +51,11 @@ int main(int argc, char **argv)
     pmergeVector.printContainer(BEFORE);
 //--------------------------------------------------------------
     clock_t    vectorTimeStart = clock();
-    pmergeVector.fordJohnsonAlgorithm();
+    pmergeVector.mergeInsertionSort();
     double          vectorTimeDuration = (clock() - vectorTimeStart) / (double)CLOCKS_PER_SEC * 1000;
 //--------------------------------------------------------------
     clock_t    dequeTimeStart = clock();
-    pmergeDeque.fordJohnsonAlgorithm();
+    pmergeDeque.mergeInsertionSort();
     double          dequeTimeDuration = (clock() - dequeTimeStart) / (double)CLOCKS_PER_SEC * 1000;
 //--------------------------------------------------------------
     pmergeVector.printContainer(AFTER);
