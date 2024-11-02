@@ -63,6 +63,11 @@ void    RPN::calculate(const std::string& str)
             this->_stack.push(str[i] - '0');
             continue ;
         }
+        else if (this->_stack.size() == 0 && !std::isdigit(str[i]))
+        {
+            std::cerr << "Error: Your string doesn't respect the rules" << std::endl;
+            return ;
+        }
         
         if (str[i] == ' ')
             continue ;
