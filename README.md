@@ -36,4 +36,4 @@ This repository contains Modules 00-09 of the École 42 C++ curriculum. Each mod
 
 ---
 
-Each module directory contains instructions, exercises, and examples to deepen your understanding of C++ programming.
+Each module directory contains complete exercises, so it requires only 'make' command and './executable_name <some args if they are needed>'.
